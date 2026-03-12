@@ -25,7 +25,9 @@ const code = await sock.requestPairingCode(phoneNumber)
 
 console.log("PAIR CODE:", code)
 
-}, 3000)
+}, 5000)
+
+}
 
 }sock.ev.on("connection.update", (update) => {
 
