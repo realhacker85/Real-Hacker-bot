@@ -1,4 +1,4 @@
-ort const menu = (pushname) => {
+export const menu = (pushname) => {
 
         return `
 ╔═══〔 👨‍💻 REAL HACKER BOT 〕═══╗
