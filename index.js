@@ -16,10 +16,30 @@ printQRInTerminal: false
 sock.ev.on("creds.update", saveCreds)
 
 if (!sock.authState.creds.registered) {
-let number = config.owner
-let code = await sock.requestPairingCode(number)
+
+const phoneNumber = "255651373899"
+
+setTimeout(async () => {
+
+const code = await sock.requestPairingCode(phoneNumber)
+
 console.log("PAIR CODE:", code)
+
+}, 3000)
+
+}sock.ev.on("connection.update", (update) => {
+
+const { connection } = update
+
+if (connection === "close") {
+
+console.log("Reconnecting...")
+
+startBot()
+
 }
+
+})
 
 sock.ev.on("messages.upsert", async ({ messages }) => {
 
